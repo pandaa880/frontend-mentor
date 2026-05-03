@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "react", "import", "unicorn"],
+  "env": { "browser": true },
+  "settings": { "react": { "version": "19.0.0" } },
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn"
+  },
+  "rules": {
+    "eqeqeq": "warn",
+    "import/no-cycle": "error"
+  },
+  "ignorePatterns": ["node_modules/**", "dist/**", "*.json"]
+}
