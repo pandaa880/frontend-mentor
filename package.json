@@ -10,7 +10,8 @@
     "lint:fix": "oxlint --fix",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
-    "check": "pnpm fmt:check && pnpm lint"
+    "check": "pnpm fmt:check && pnpm lint",
+    "preview": "pnpm build && python3 -m http.server"
   },
   "keywords": [],
   "author": "",
