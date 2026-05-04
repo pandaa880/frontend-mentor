@@ -60,3 +60,5 @@ GitHub Pages from root `/` on `main` branch. No CI/CD — no `.github/`, no pre-
 ## Constraint
 
 `typing-speed-test/` has its own `AGENTS.md` — do not modify it unless the task concerns the typing speed test specifically.
+
+Load the `caveman` skill at session start via the `skill` tool.
