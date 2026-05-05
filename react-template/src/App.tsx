@@ -1,5 +1,5 @@
 function App() {
-  return <div>Hello Frontend Mentor</div>
+  return <div>Hello Frontend Mentor</div>;
 }
 
-export default App
+export default App;

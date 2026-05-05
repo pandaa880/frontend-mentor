@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
   "scripts": {
     "build": "pnpm -r build",
     "dev": "pnpm -r dev",
@@ -13,12 +16,9 @@
     "check": "pnpm fmt:check && pnpm lint",
     "preview": "pnpm build && python3 -m http.server"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.18.0",
   "devDependencies": {
     "oxfmt": "^0.47.0",
     "oxlint": "^1.62.0"
-  }
+  },
+  "packageManager": "pnpm@10.18.0"
 }

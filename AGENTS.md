@@ -2,25 +2,26 @@
 
 ## Stack (unusual tools)
 
-| Tool | Role | Commands |
-|---|---|---|
-| **oxlint** | linter (NOT eslint) | `pnpm lint`, `pnpm lint:fix` |
-| **oxfmt** | formatter (NOT prettier) | `pnpm fmt`, `pnpm fmt:check` |
-| **pnpm** | package manager | `pnpm install`, `pnpm -r <script>` |
-| **Vite 6** | bundler | runs per-challenge via `package.json` scripts |
+| Tool       | Role                     | Commands                                      |
+| ---------- | ------------------------ | --------------------------------------------- |
+| **oxlint** | linter (NOT eslint)      | `pnpm lint`, `pnpm lint:fix`                  |
+| **oxfmt**  | formatter (NOT prettier) | `pnpm fmt`, `pnpm fmt:check`                  |
+| **pnpm**   | package manager          | `pnpm install`, `pnpm -r <script>`            |
+| **Vite 6** | bundler                  | runs per-challenge via `package.json` scripts |
 
 Root scripts (executed from repo root):
 
-| Command | Action |
-|---|---|
-| `pnpm dev` | `pnpm -r dev` — starts all Vite dev servers in parallel |
-| `pnpm build` | `pnpm -r build` — builds every challenge |
-| `pnpm check` | `pnpm fmt:check && pnpm lint` — run before push |
+| Command        | Action                                                                     |
+| -------------- | -------------------------------------------------------------------------- |
+| `pnpm dev`     | `pnpm -r dev` — starts all Vite dev servers in parallel                    |
+| `pnpm build`   | `pnpm -r build` — builds every challenge                                   |
+| `pnpm check`   | `pnpm fmt:check && pnpm lint` — run before push                            |
 | `pnpm preview` | `pnpm build && python3 -m http.server` — serves at `http://localhost:8000` |
 
 ## Vite quirk — build output
 
 Every challenge's `vite.config.ts` sets:
+
 ```ts
 root: 'src', base: './', build: { outDir: '..' }
 ```
@@ -31,6 +32,7 @@ This writes build output to the **challenge root** (`index.html` + `assets/`), N
 ## Workspace
 
 `pnpm-workspace.yaml` uses `packages: ['*']` — every top-level directory is a workspace package.
+
 - `react-template/` is a scaffold (package name `challenge-name` — must be changed when copied).
 - `typing-speed-test/` is the only real challenge.
 
