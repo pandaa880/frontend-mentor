@@ -5,6 +5,7 @@ import { Header } from "./components/Header";
 import { TypingArea } from "./components/TypingArea";
 import { useBestScore } from "./hooks/useBestScore";
 import { useKeyboard } from "./hooks/useKeyboard";
+import { useTimer } from "./hooks/useTimer";
 import { useTypingReducer } from "./hooks/useTypingReducer";
 import { getRandomPassage } from "./utils/getRandomPassage";
 
@@ -18,6 +19,7 @@ function App() {
   }, [state.difficulty, dispatch]);
 
   useKeyboard(state.phase, state.currentIndex, state.passage?.text.length ?? 0, dispatch);
+  useTimer(state.phase, state.startedAt, dispatch);
 
   useEffect(() => {
     if (
@@ -51,6 +53,7 @@ function App() {
         <Controls
           difficulty={state.difficulty}
           mode={state.mode}
+          elapsedMs={state.elapsedMs}
           onDifficultyChange={handleDifficultyChange}
           onModeChange={handleModeChange}
           disabled={state.phase === "running"}
