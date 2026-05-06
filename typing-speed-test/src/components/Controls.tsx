@@ -6,6 +6,8 @@ import { StatPanel } from "./StatPanel";
 interface ControlsProps {
   difficulty: Difficulty;
   mode: Mode;
+  wpm: number;
+  accuracy: number;
   elapsedMs: number;
   onDifficultyChange: (difficulty: Difficulty) => void;
   onModeChange: (mode: Mode) => void;
@@ -15,6 +17,8 @@ interface ControlsProps {
 function Controls({
   difficulty,
   mode,
+  wpm,
+  accuracy,
   elapsedMs,
   onDifficultyChange,
   onModeChange,
@@ -22,7 +26,7 @@ function Controls({
 }: ControlsProps) {
   return (
     <div className="controls">
-      <StatPanel elapsedMs={elapsedMs} />
+      <StatPanel wpm={wpm} accuracy={accuracy} elapsedMs={elapsedMs} mode={mode} />
       <DifficultySelect difficulty={difficulty} onChange={onDifficultyChange} disabled={disabled} />
       <ModeSelect mode={mode} onChange={onModeChange} disabled={disabled} />
     </div>
