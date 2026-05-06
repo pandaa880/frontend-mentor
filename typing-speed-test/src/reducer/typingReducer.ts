@@ -26,6 +26,7 @@ function typingReducer(state: TypingState, action: TypingAction): TypingState {
     }
 
     case "SELECT_PASSAGE": {
+      if (state.phase !== "idle") return state;
       return {
         ...state,
         passage: action.payload,

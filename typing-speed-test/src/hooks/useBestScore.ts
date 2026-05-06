@@ -1,22 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import type { BestScore } from "../types";
 
 const BEST_SCORE_KEY = "typing-speed-best";
 
 function useBestScore() {
-  const [bestScore, setBestScore] = useState<BestScore | null>(null);
-
-  useEffect(() => {
+  const [bestScore] = useState<BestScore | null>(() => {
     try {
       const stored = localStorage.getItem(BEST_SCORE_KEY);
-      if (stored) {
-        setBestScore(JSON.parse(stored));
-      }
+      return stored ? (JSON.parse(stored) as BestScore) : null;
     } catch {
-      // corrupted data — ignore
+      return null;
     }
-  }, []);
+  });
 
   return bestScore;
 }

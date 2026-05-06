@@ -4,6 +4,7 @@ import { Controls } from "./components/Controls";
 import { Header } from "./components/Header";
 import { TypingArea } from "./components/TypingArea";
 import { useBestScore } from "./hooks/useBestScore";
+import { useKeyboard } from "./hooks/useKeyboard";
 import { useTypingReducer } from "./hooks/useTypingReducer";
 import { getRandomPassage } from "./utils/getRandomPassage";
 
@@ -15,6 +16,18 @@ function App() {
     const passage = getRandomPassage(state.difficulty);
     dispatch({ type: "SELECT_PASSAGE", payload: passage });
   }, [state.difficulty, dispatch]);
+
+  useKeyboard(state.phase, state.currentIndex, state.passage?.text.length ?? 0, dispatch);
+
+  useEffect(() => {
+    if (
+      state.phase === "running" &&
+      state.passage &&
+      state.currentIndex >= state.passage.text.length
+    ) {
+      dispatch({ type: "FINISH" });
+    }
+  }, [state.phase, state.currentIndex, state.passage, dispatch]);
 
   const handleDifficultyChange = (difficulty: typeof state.difficulty) => {
     dispatch({ type: "SET_DIFFICULTY", payload: difficulty });
