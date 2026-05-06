@@ -8,14 +8,14 @@ This is a **pnpm monorepo** using flat workspace discovery (`pnpm-workspace.yaml
 
 ### Stack
 
-| Layer | Technology |
-|-------|-----------|
-| **Runtime** | Node.js (pnpm 10) |
-| **Framework** | React 19 |
-| **Language** | TypeScript 5.7 (ESNext target, bundler module resolution) |
-| **Bundler** | Vite 6 |
-| **Linter** | Oxlint (1.62) |
-| **Formatter** | Oxfmt (0.47) |
+| Layer         | Technology                                                |
+| ------------- | --------------------------------------------------------- |
+| **Runtime**   | Node.js (pnpm 10)                                         |
+| **Framework** | React 19                                                  |
+| **Language**  | TypeScript 5.7 (ESNext target, bundler module resolution) |
+| **Bundler**   | Vite 6                                                    |
+| **Linter**    | Oxlint (1.62)                                             |
+| **Formatter** | Oxfmt (0.47)                                              |
 
 ### Vite convention
 
@@ -98,13 +98,13 @@ pnpm install
 
 ## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `pnpm dev` | Start all challenges in dev mode |
-| `pnpm build` | Build all React challenges |
-| `pnpm lint` | Lint all files |
-| `pnpm fmt` | Format all files |
-| `pnpm check` | Format check + lint |
+| Command      | Description                      |
+| ------------ | -------------------------------- |
+| `pnpm dev`   | Start all challenges in dev mode |
+| `pnpm build` | Build all React challenges       |
+| `pnpm lint`  | Lint all files                   |
+| `pnpm fmt`   | Format all files                 |
+| `pnpm check` | Format check + lint              |
 
 ## Deploy
 
