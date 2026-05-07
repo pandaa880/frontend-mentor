@@ -10,10 +10,11 @@ interface HeaderProps {
 function Header({ bestScore }: HeaderProps) {
   return (
     <header className="app-header">
-      <picture>
-        <source srcSet={logoLarge} media="(min-width: 600px)" />
+      <picture className="header-logo-text">
+        <source srcSet={logoLarge} media="(min-width: 768px)" />
         <img className="header-logo" src={logoSmall} alt="Typed" height="32" />
       </picture>
+      <img className="header-logo-mobile header-logo" src={logoSmall} alt="Typed" height="32" />
       <PersonalBestBadge bestScore={bestScore} />
     </header>
   );

@@ -11,7 +11,9 @@ function PersonalBestBadge({ bestScore }: PersonalBestBadgeProps) {
   return (
     <div className="personal-best-badge">
       <img src={iconPersonalBest} alt="" width="20" height="18" />
-      <span className="personal-best-badge__label">Personal Best: {bestScore.wpm} WPM</span>
+      <p className="personal-best-badge__label">
+        Personal best: <span>{bestScore.wpm} WPM</span>
+      </p>
     </div>
   );
 }

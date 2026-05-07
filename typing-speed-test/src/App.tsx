@@ -93,44 +93,46 @@ function App() {
 
   return (
     <div className="app">
-      <Header bestScore={bestScore} />
+      <div className="app-inner">
+        <Header bestScore={bestScore} />
 
-      {showControls && (
-        <Controls
-          difficulty={state.difficulty}
-          mode={state.mode}
-          wpm={stats.wpm}
-          accuracy={stats.accuracy}
-          elapsedMs={state.elapsedMs}
-          onDifficultyChange={handleDifficultyChange}
-          onModeChange={handleModeChange}
-          disabled={state.phase === "running"}
-        />
-      )}
+        {showControls && (
+          <Controls
+            difficulty={state.difficulty}
+            mode={state.mode}
+            wpm={stats.wpm}
+            accuracy={stats.accuracy}
+            elapsedMs={state.elapsedMs}
+            onDifficultyChange={handleDifficultyChange}
+            onModeChange={handleModeChange}
+            disabled={state.phase === "running"}
+          />
+        )}
 
-      {state.phase !== "finished" && (
-        <TypingArea
-          phase={state.phase}
-          passage={state.passage}
-          charStatuses={state.charStatuses}
-          currentIndex={state.currentIndex}
-          onStart={handleStart}
-        />
-      )}
+        {state.phase !== "finished" && (
+          <TypingArea
+            phase={state.phase}
+            passage={state.passage}
+            charStatuses={state.charStatuses}
+            currentIndex={state.currentIndex}
+            onStart={handleStart}
+          />
+        )}
 
-      {state.phase === "finished" && (
-        <ResultsPanel
-          wpm={stats.wpm}
-          accuracy={stats.accuracy}
-          correctChars={state.correctKeystrokes}
-          incorrectChars={state.incorrectKeystrokes}
-          isNewBest={isNewBest}
-          isFirstTest={isFirstTest}
-          onRestart={handleRestart}
-        />
-      )}
+        {state.phase === "finished" && (
+          <ResultsPanel
+            wpm={stats.wpm}
+            accuracy={stats.accuracy}
+            correctChars={state.correctKeystrokes}
+            incorrectChars={state.incorrectKeystrokes}
+            isNewBest={isNewBest}
+            isFirstTest={isFirstTest}
+            onRestart={handleRestart}
+          />
+        )}
 
-      <Confetti show={state.phase === "finished" && isNewBest} />
+        <Confetti show={state.phase === "finished" && isNewBest} />
+      </div>
     </div>
   );
 }
